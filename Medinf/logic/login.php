@@ -14,14 +14,26 @@ include '../includes/autoloader.inc.php'
 <body>
     <?php
         $user = new Personal();
-        $verify=$user->verify($_POST['username'],$_POST['password']);
-        $_SESSION["error"]="";
-        if($verify==false){
+        $u=$user->getPasswordByUsername($_POST['username']);
+
+        if(password_verify($_POST['password'],$u["password"])){
+            //header('Location: ../sites/direct.php');  
+        }
+        else{
             $_SESSION["error"]="Der Nutzername und das Passwort stimmen nicht mit unseren Unterlagen überein. 
             Bitte überprüfe deine Angaben und versuche es erneut.";
-            header('Location: ../index.php');     
+            header('Location: ../index.php');  
         }
-        //header('Location: ../sites/direct.php');   
+        
     ?>
+
+<section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h2>zeas..</h2>
+            </div>
+        </div>
+    </div>
+        
 </body>
 </html>

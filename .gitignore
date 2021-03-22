@@ -1,0 +1,8 @@
+#gitignore ignores Folder and Files --> does not upload to git
+
+#files
+# singelton solution by stejul
+stejul
+# Database stuff
+MedinfDB
+
