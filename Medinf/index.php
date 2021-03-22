@@ -54,8 +54,7 @@ session_start();
                                         required>
                                 </div>
                             </div>
-
-
+                            
                             <input class="button is-block is-info is-large is-fullwidth" type="submit" value="Anmelden">
                         </form>
                     </div>
