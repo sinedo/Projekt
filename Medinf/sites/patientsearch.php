@@ -1,3 +1,6 @@
+<?php
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +13,11 @@
 <body>
 
     <div>
-    <form action="" method="post"></form>
-        Suche: <input type="text" name="name">
+    <form action="../logic/searchengine.php" method="post">
+        Patient: <input type="text" name="name">
+        <input type = "submit" value ="Suchen">
+        
+        </form>
         
     </div>
     
