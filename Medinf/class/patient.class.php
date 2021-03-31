@@ -1,6 +1,6 @@
 <?php
 
-class Patient extends class Database {
+class Patient extends Database {
 
     public function searchbyname ($name) {
         $pdo = $this->connect();
