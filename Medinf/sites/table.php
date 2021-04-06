@@ -2,6 +2,11 @@
 <div class="topnav">
   <input type="text" placeholder="Search...">
 </div>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 <head>
 
 <body>
