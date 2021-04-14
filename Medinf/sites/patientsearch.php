@@ -1,5 +1,5 @@
 <?php
-
+    include '../includes/autoloader.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +13,19 @@
 <body>
 
     <div>
-    <form action="../logic/searchengine.php" method="post">
+    <form action="patientsearch.php" method="post">
         Patient: <input type="text" name="name">
         <input type = "submit" value ="Suchen">
-        
         </form>
-        
+        <?php
+            if(isset($_POST["name"])) {
+                $p1 = new Patient();
+                $output = $p1->searchbyname($_POST["name"]);
+                while( $row = $output->fetch()){
+                    echo "<br><p>".$row["name"]." ".$row["surname"]." ".$row["svn"]."</p>";
+                }
+            }
+        ?>
     </div>
     
     
