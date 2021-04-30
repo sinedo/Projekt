@@ -14,7 +14,7 @@
 
     <div>
     <form action="patientsearch.php" method="post">
-        Patient: <input type="text" name="name">
+         Patient: <input type="text" name="name">
         <input type = "submit" value ="Suchen">
         </form>
         <?php
@@ -26,9 +26,9 @@
                 }
             }
         ?>
+        
     </div>
-    
-    
+   
 
 </body>
 </html>
