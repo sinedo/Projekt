@@ -19,7 +19,7 @@ include '../includes/autoloader.inc.php'
         $u=$user->getPasswordByUsername($_POST['username']);
 
         if(password_verify($_POST['password'],$u["password"])){
-            //header('Location: ../sites/table.php');  
+            header('Location: ../sites/table.php');  
         }
         else{
             $_SESSION["error"]="Der Nutzername und das Passwort stimmen nicht mit unseren Unterlagen überein. 
@@ -28,13 +28,5 @@ include '../includes/autoloader.inc.php'
         }
         
     ?>
-
-    <section class="hero is-success is-fullheight">
-            <div class="hero-body">
-                <div class="container has-text-centered has-text-black">
-                    <h2 class="title is-1 has-text-black">zeas...</h2>
-                </div>
-            </div>  
-    </section>
 </body>
 </html>
