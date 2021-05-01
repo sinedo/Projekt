@@ -10,6 +10,8 @@ include '../includes/autoloader.inc.php'
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification</title>
+    <link rel="stylesheet" href="../styles/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/theme.css">
 </head>
 <body>
     <?php
@@ -17,7 +19,7 @@ include '../includes/autoloader.inc.php'
         $u=$user->getPasswordByUsername($_POST['username']);
 
         if(password_verify($_POST['password'],$u["password"])){
-            //header('Location: ../sites/direct.php');  
+            //header('Location: ../sites/table.php');  
         }
         else{
             $_SESSION["error"]="Der Nutzername und das Passwort stimmen nicht mit unseren Unterlagen überein. 
@@ -27,13 +29,12 @@ include '../includes/autoloader.inc.php'
         
     ?>
 
-<section class="hero is-success is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h2>zeas..</h2>
-            </div>
-        </div>
-    </div>
-        
+    <section class="hero is-success is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered has-text-black">
+                    <h2 class="title is-1 has-text-black">zeas...</h2>
+                </div>
+            </div>  
+    </section>
 </body>
 </html>
