@@ -13,6 +13,7 @@ class Patient extends Database {
         $this->close($pdo);
         return $result;
     }
+
     public function editpatient ($svn) {
         $pdo = $this->connect();
         $sql = "SELECT * FROM Patients WHERE svn LIKE $svn";
