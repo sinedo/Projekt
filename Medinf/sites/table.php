@@ -1,5 +1,7 @@
 <?php
 session_start();
+include '../includes/autoloader.inc.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -23,15 +25,15 @@ session_start();
         <div class="hero-body">
             <div class="container">
                        
-                           <form class="box">
+                           <form class="box" action="table.php" method="post">
                               <div class="field">
                               <h1 class="title has-text-black">Patientensuche</h1>
                               <div class="columns">
                               <div class="column is-11">
-                                <input class="input" type="text" placeholder="Search for Patients...">
+                                <input class="input" name="name" type="text" placeholder="Sucheintrag...">
                                 </div>
                                 <div class="column">
-                                <button class="button is-link">GO</button>
+                                <input class="button is-link" value="GO" type="submit">
                                 </div>
 
                                 </form>
@@ -42,215 +44,42 @@ session_start();
                                       <th> SVNR </th>
                                       <th>Vorname</th>
                                       <th>Nachname</th>
-                                      <th>MORE INFO</th>
+                                      <th>weitere Informationen</th>
+                                      <th></th>
+
                                       </tr>
                                       </thead>
-                                    
-                                      
-
-                                               <tbody>
-                                                <tr>
-                                                <td>1312</td>
-                                                <td>Eddobis</td>
-                                                <td>Mobile</td>
-                                                <td>is very huge :v</td>
-                                                </tr>
-                                            
-                                                <tr>
-                                                <td>1323</td>
-                                                <td>Clementine</td>
-                                                <td>Graph</td>
-                                                <td>lot of brain cells</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>1312</td>
-                                                <td>Eddobis</td>
-                                                <td>Mobile</td>
-                                                <td>is very huge :v</td>
-                                                </tr>
-                                            
-                                                <tr>
-                                                <td>1323</td>
-                                                <td>Clementine</td>
-                                                <td>Graph</td>
-                                                <td>lot of brain cells</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>1312</td>
-                                                <td>Eddobis</td>
-                                                <td>Mobile</td>
-                                                <td>is very huge :v</td>
-                                                </tr>
-                                            
-                                                <tr>
-                                                <td>1323</td>
-                                                <td>Clementine</td>
-                                                <td>Graph</td>
-                                                <td>lot of brain cells</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>1312</td>
-                                                <td>Eddobis</td>
-                                                <td>Mobile</td>
-                                                <td>is very huge :v</td>
-                                                </tr>
-                                            
-                                                <tr>
-                                                <td>1323</td>
-                                                <td>Clementine</td>
-                                                <td>Graph</td>
-                                                <td>lot of brain cells</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-
-                                                
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-
-
-                                                
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-
-
-                                                
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-
-
-                                                
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-
-
-                                                
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-
-
-                                                
-                                                <tr>
-                                                <td>2342</td>
-                                                <td>Kosdor</td>
-                                                <td>Fisch</td>
-                                                <td>rages at chess</td>
-                                                </tr>
-
-                                                <tr>
-                                                <td>6424</td>
-                                                <td>Daten</td>
-                                                <td>Bank</td>
-                                                <td>Eintrag</td>
-                                                </tr>
-                                              </tbody>
-                                              </table>
+                                          <tbody>
+                                               <?php
+                                                if(isset($_POST["name"])) {
+                                                  $p1 = new Patient();
+                                                  $output = $p1->searchbyname($_POST["name"]);
+                                                  while( $row = $output->fetch()){
+                                                    echo '<tr>
+                                                    <td>'.$row["svn"]. '</td>
+                                                    <td>'.$row["name"].'</td>
+                                                    <td>'.$row["surname"].'</td>
+                                                    <td> <button class="button is-link"> Vitalwerte</button> </td>
+                                                    <td> <button class="button is-link"> Dokumentation</button></td>
+                                                    </tr> ';
+                                                  }
+                                                }
+                                                else{
+                                                  $p1 = new Patient();
+                                                  $output = $p1->searchbyname("");
+                                                  while( $row = $output->fetch()){
+                                                    echo '<tr>
+                                                    <td>'.$row["svn"]. '</td>
+                                                    <td>'.$row["name"].'</td>
+                                                    <td>'.$row["surname"].'</td>
+                                                    <td> <button class="button is-link"> Vitalwerte</button> </td>
+                                                    <td> <button class="button is-link"> Dokumentation</button></td>
+                                                    </tr> ';
+                                                  }
+                                                }
+                                               ?>                                           
+                                          </tbody>
+                                    </table>
                          </div>
                     </div>
                </div>
