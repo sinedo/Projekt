@@ -27,20 +27,14 @@ session_start();
                     <div class="box">
 
                         <img src="img/logo.png" alt="logo.png">
-
-                        <form action="logic/login.php" method="POST">   
-                                                 
-                            
+                        <form action="logic/login.php" method="POST">     
+                        
                                 <?php 
-                                
-                                if(isset($_SESSION["error"])){
-
-                                    echo '<p class="is-6 has-text-red">'.($_SESSION["error"]).'</p> <br>';
-                                    $_SESSION["error"]="";
-                                }
-
+                                    if(isset($_SESSION["error"])){
+                                        echo '<p class="is-6 has-text-red">'.($_SESSION["error"]).'</p> <br>';
+                                        $_SESSION["error"]="";
+                                    }
                                 ?> 
-
                             <div class="field">
                                 <div class="control">
                                     <input class="input is-large" name="username" type="text" placeholder="Benutzername"

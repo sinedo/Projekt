@@ -19,7 +19,20 @@ include '../includes/autoloader.inc.php'
         $u=$user->getPasswordByUsername($_POST['username']);
 
         if(password_verify($_POST['password'],$u["password"])){
-            header('Location: ../sites/table.php');  
+            if(u["role"]=="arzt"){
+                $_SESSION["role"]="arzt";
+                header('Location: ../sites/table.php');  
+                
+
+            }
+            if(u["role"]=="pflege"){
+                header('Location: ../sites/table.php');  
+                $_SESSION["role"]="pflege";
+            }
+            if(u["role"]=="verwaltung"){
+                //header('Location: ../index.php');  
+                $_SESSION["role"]="verwaltung";
+            }
         }
         else{
             $_SESSION["error"]="Der Nutzername und das Passwort stimmen nicht mit unseren Unterlagen überein. 
