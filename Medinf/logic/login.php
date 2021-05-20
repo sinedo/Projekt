@@ -19,19 +19,18 @@ include '../includes/autoloader.inc.php'
         $u=$user->getPasswordByUsername($_POST['username']);
 
         if(password_verify($_POST['password'],$u["password"])){
-            if(u["role"]=="arzt"){
+            if($u["role"]=="arzt"){
                 $_SESSION["role"]="arzt";
-                header('Location: ../sites/table.php');  
-                
+                header('Location: ../sites/patients.php');  
+            }
+            if($u["role"]=="pflege"){
+                $_SESSION["role"]="pflege";
+                header('Location: ../sites/patients.php');  
 
             }
-            if(u["role"]=="pflege"){
-                header('Location: ../sites/table.php');  
-                $_SESSION["role"]="pflege";
-            }
-            if(u["role"]=="verwaltung"){
-                //header('Location: ../index.php');  
+            if($u["role"]=="verwaltung"){
                 $_SESSION["role"]="verwaltung";
+                //header('Location: ../index.php');  
             }
         }
         else{
