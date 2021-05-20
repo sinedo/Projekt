@@ -14,7 +14,7 @@
     
 <div>
     <form action="../sites/addpatient.php" method="post">
-         SVN: <input type="number" name="svn">
+         SVN: <input type="text" name="svn">
         <input type = "submit" value ="Suchen">
         </form>
         

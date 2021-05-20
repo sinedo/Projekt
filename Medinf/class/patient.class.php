@@ -5,7 +5,7 @@ class Patient extends Database {
     public function searchbyname ($patientname) {
         $patientname = $patientname.'%';
         $pdo = $this->connect();
-        $sql = "SELECT name, surname, svn FROM patients WHERE name LIKE :pname OR surname LIKE :pname";
+        $sql = "SELECT name, surname, svn, idPatients FROM patients WHERE name LIKE :pname OR surname LIKE :pname";
         $result = $pdo->prepare($sql);
         $result->bindParam(':pname', $patientname, PDO::PARAM_STR);
        
@@ -23,33 +23,22 @@ class Patient extends Database {
         return $result->fetch();
 
     }
-    public function editpatient ($name, $surname, $birthday, $svn, $address, $city, $post_code, $sex, $pronoun, $mobilephone) {
+    public function editpatient ($id, $name, $surname, $birthday, $svn, $address, $city, $post_code, $sex, $pronoun, $mobilephone, $health_insurance, $email, $title) {
         $pdo = $this->connect();
-        $sql = "UPDATE patients SET name = '$name', surname = '$surname', birthdate = '$birthday', sex = '$sex', pronoun = '$pronoun', address = '$address', city = '$city', post_code = '$post_code', mobilephone = '$mobilephone' WHERE svn = $svn";  
+        $sql = "UPDATE patients SET name = '$name', surname = '$surname', birthdate = '$birthday', svn = '$svn', sex = '$sex', pronoun = '$pronoun', address = '$address', city = '$city', post_code = '$post_code', mobilephone = '$mobilephone', health_insurance = '$health_insurance', email = '$email', title = '$title' WHERE idPatients = $id";  
         $result = $pdo->prepare($sql);
         $result->execute();
         $this->close($pdo);
         $result->fetch();
     }
-    public function addnewpatient ($name, $surname, $birthday, $svn, $address, $city, $post_code, $sex, $pronoun, $mobilephone) {
+    public function addnewpatient ($name, $surname, $birthday, $svn, $address, $city, $post_code, $sex, $pronoun, $mobilephone, $health_insurance, $email, $title) {
         $pdo = $this->connect();
-        $sql = "SELECT svn FROM patients WHERE svn LIKE $svn";
+        $sql = "INSERT INTO patients (name, surname, svn, birthdate, sex, pronoun, address, city, post_code, mobilephone, health_insurance, email, title)
+        VALUES ('$name', '$surname','$svn', '$birthday', '$sex', '$pronoun', '$address', '$city', '$post_code', '$mobilephone', '$health_insurance', '$email', '$title')";
         $result = $pdo->prepare($sql);
         $result->execute();
+        $this->close($pdo);
         $result->fetch();
-        if ($result = $svn) {
-            echo 'Dieser Patient existiert bereits!';
-            return editpatient($svn);
-        }
-        else {
-            $sql = "INSERT INTO patients (name, surname, svn, birthdate, sex, pronoun, address, city, post_code, mobilephone)
-            VALUES ('$name', '$surname','$svn', '$birthday', '$sex', '$pronoun', '$address', '$city', '$post_code', '$mobilephone')";
-            $result = $pdo->prepare($sql);
-
-            $result->execute();
-            $this->close($pdo);
-            $result->fetch();
-        }
     }
 }
 
