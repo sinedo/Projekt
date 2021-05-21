@@ -30,7 +30,7 @@ include '../includes/autoloader.inc.php'
             }
             if($u["role"]=="verwaltung"){
                 $_SESSION["role"]="verwaltung";
-                //header('Location: ../index.php');  
+                header('Location: ../sites/editpatient.php');  
             }
         }
         else{

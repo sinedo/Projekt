@@ -56,13 +56,13 @@
                 <td> 
                   <form action="../sites/docs.php" method="POST">
                     <input type="text" class="is-hidden" name="id" value="'.$row["idPatients"].'">
-                    <input class="button is-block is-info is-large" name="docs" type="submit" value="Dokumentation" </td>
+                    <input class="button is-block is-info is-medium" name="docs" type="submit" value="Dokumentation" </td>
                   </form>
                 </td>
                 <td>
                   <form action="../sites/vitals.php" method="POST">
                     <input type="text" class="is-hidden" name="id" value="'.$row["idPatients"].'">
-                    <input class="button is-block is-info is-large" name="vitals" type="submit" value="Vitalwerte" </td>
+                    <input class="button is-block is-info is-medium" name="vitals" type="submit" value="Vitalwerte" </td>
                   </form>
                 </td> 
               </tr>';
@@ -76,8 +76,18 @@
                 <td>'.$row["svn"]. '</td>
                 <td>'.$row["name"].'</td>
                 <td>'.$row["surname"].'</td>
-                <td> <button class="button is-link"> Vitalwerte</button> </td>
-                <td> <button class="button is-link"> Dokumentation</button></td>
+                <td> 
+                  <form action="../sites/docs.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="'.$row["idPatients"].'">
+                    <input class="button is-block is-info is-medium" name="docs" type="submit" value="Dokumentation" </td>
+                  </form>
+                </td>
+                <td>
+                  <form action="../sites/vitals.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="'.$row["idPatients"].'">
+                    <input class="button is-block is-info is-medium" name="vitals" type="submit" value="Vitalwerte" </td>
+                  </form>
+                </td> 
                 </tr> ';
               }
             }
