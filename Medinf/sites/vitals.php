@@ -32,20 +32,20 @@ session_start();
                                     <h1 class="title has-text-black">Name: Edonis Berisha</h1>
                                     <h1 class="title has-text-black">Geschlecht: M </h1>
                                     <h1 class="title has-text-black">Pronomen: he/him</h1>
-                                </div>
+                            </div>
                                 <div class="column">
                                     <h1 class="title has-text-black">Alter: 22</h1>
                                     <h1 class="title has-text-black">Größe: 1.90 cm</h1>
                                     <h1 class="title has-text-black">Gewicht: 80 kg</h1>
                                     <h1 class="title has-text-black">Aufenthaltsgrund: schwere Atemnot ICPD co.</h1>
                                 </div>  
-                            </div>    
-                        </div>
+                        </div>    
+                    </div>
                             <div class="box">
                                 <div class="columns">
                                         <div class="dropdown is-active">
                                             <div class="dropdown-trigger">  
-                                                </div>  
+                                                <div>  
                                                     <table class="table is-fullwidth">
                                                     <thead>
                                                     <tr>
@@ -57,8 +57,7 @@ session_start();
                                         </div>    
                                 </div>   
                                     <div class="columns">
-                                        </form>
-                                        </div>  
+                                        <div>  
                                             <table class="table is-fullwidth">
                                             <thead>
                                             <tr>
@@ -68,8 +67,7 @@ session_start();
                                         </div>    
                                     </div> 
                                         <div class="columns">
-                                            </form>
-                                            </div>  
+                                            <div>  
                                                 <table class="table is-fullwidth">
                                                 <thead>
                                                 <tr>
@@ -79,8 +77,7 @@ session_start();
                                             </div>    
                                         </div> 
                                             <div class="columns">
-                                                </form>
-                                                </div>  
+                                                <div>  
                                                     <table class="table is-fullwidth">
                                                     <thead>
                                                     <tr>
