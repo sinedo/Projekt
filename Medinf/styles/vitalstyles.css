@@ -37,6 +37,7 @@ html,body {
  .dropdown.is-fullwidth * {
      width: 100%;
   }
+
   .content{
     position: relative;
     top: 100px;
