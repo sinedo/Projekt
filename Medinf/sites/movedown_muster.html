@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/bulma.min.css" />
+    <link rel="stylesheet" href="../styles/vitalstyles.css" />
+
+    
+
+    
+</head>
+<body>
+    <div>
+        <div class="dropdown is-fullwidth" id="dropdown">
+            <div class="dropdown-trigger">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                    <span>Content</span>
+                    <span class="icon is-small">
+                        <img src="../img/Down-Carrot-512.jpg">
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <div class="dropdown-item is-fullwidth">
+                        <div id="xD">  
+                            <table class="table is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>SVN</th>
+                                        <th>Vorname</th>
+                                        <th>Nachname</th>
+                                        <th>weitere Informationen</th>
+                                    </tr>
+                                </thead>    
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td> <button class="button is-link"> Vitalwerte</button> </td>
+                                    </tr>  
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td> <button class="button is-link"> Vitalwerte</button> </td>
+                                    </tr>  
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                        <td> <button class="button is-link"> Vitalwerte</button> </td>
+                                    </tr>  
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                var dropdown = document.querySelector('.dropdown');
+
+                dropdown.classList.toggle('is-active');
+                var height = document.getElementById('dropdown-menu').offsetHeight+135;
+                dropdown.classList.toggle('is-active');
+
+                dropdown.addEventListener('click', function(event) {
+                    
+                    event.stopPropagation();
+                    dropdown.classList.toggle('is-active');
+                    if(height>0){
+                        document.getElementById("content").style.top = height+"px";
+                    }else{
+                        document.getElementById("content").style.top = 100+"px";
+                    }
+                    height=-height;
+                });
+                });        
+            </script>
+        </div>
+    </div>
+    <div class="content" id="content">  
+        <p id="hi">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi quo error porro, illo iure magni quidem nesciunt beatae in sequi.</p>
+        <table class="table is-fullwidth">
+            <thead>
+                <tr>
+                    <th> SVN </th>
+                    <th>Vorname</th>
+                    <th>Nachname</th>
+                    <th>weitere Informationen</th>
+                    <th></th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td> <button class="button is-link"> Vitalwerte</button> </td>
+                </tr>                                        
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

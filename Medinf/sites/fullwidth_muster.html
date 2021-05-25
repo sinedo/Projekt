@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <title>Bulma Elements Example</title>
+    <link rel="stylesheet" href="../styles/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/vitalstyles.css">
+</head>
+   
+<body>
+    <div class="dropdown is-fullwidth">
+        <div class="dropdown-trigger">
+            <button class="button ">
+                <span>Viagrawert 1</span>
+            </button>
+        </div>
+        <div class = "dropdown-menu" id = "dropdown-menu" role = "menu">
+            <div class = "dropdown-content">
+                <div>  
+                    <table class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>SVN</th>
+                                <th>Vorname</th>
+                                <th>Nachname</th>
+                                <th>weitere Informationen</th>
+                                <th></th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td> <button class="button is-link"> Vitalwerte</button> </td>
+                                <td> <button class="button is-link"> Dokumentation</button></td>
+                            </tr>                                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+         </div>
+      </div>
+      <script>   
+          document.addEventListener('DOMContentLoaded', function () {    
+             var dropdown = document.querySelector('.dropdown');   
+             dropdown.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdown.classList.toggle('is-active');
+             });
+          });        
+       </script>
+   </div>
+</body>
+</html>
