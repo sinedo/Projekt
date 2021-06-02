@@ -29,9 +29,15 @@
         var options = {
           title: 'Temperaturkurve',
           curveType: 'function',
+          legend: { position: 'right' },
+          width: 1000,
+          height: 350
+
+
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
         chart.draw(data, options);
       }
     </script>
@@ -56,12 +62,14 @@
                     <div id="chart"></div>
                   </div>
                 </div>
-                <div class="dropdown-item">
-                  <p>Lorem ipsum dolor sit amet.</p>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis dicta voluptates ullam aspernatur nemo nisi esse? Et, odit excepturi sequi totam, velit suscipit modi vel iste esse qui doloribus atque.</p>
-                </div>
-                <div class="dropdown-item">
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis dicta voluptates ullam aspernatur nemo nisi esse? Et, odit excepturi sequi totam, velit suscipit modi vel iste esse qui doloribus atque.</p>
+                <div class="dropdown-item columns">
+                  <div class="column">
+                    <button class="button is-link is-fullwidth">Tabelle</button>
+                  </div>
+                
+                  <div class="column">
+                    <button class="button is-link is-fullwidth">Graph</button>
+                  </div>
                 </div>
             </div>
         </div>
@@ -70,7 +78,7 @@
             var dropdown = document.querySelector('.dropdown');
 
             dropdown.classList.toggle('is-active');
-            var height = document.getElementById('dropdown-menu').offsetHeight+135;
+            var height = document.getElementById('dropdown-menu').offsetHeight+350+135;
             dropdown.classList.toggle('is-active');
 
             dropdown.addEventListener('click', function(event) {
@@ -83,14 +91,12 @@
                     document.getElementById("content").style.top = 100+"px";
                 }
                 height=-height;
-                resizeChart();
             });
             });        
         </script>
     </div>
     <div class="content" id="content">  
-        <p id="hi">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi quo error porro, illo iure magni quidem nesciunt beatae in sequi.</p>
-        
+        <p id="hi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi quo error porro, illo iure magni quidem nesciunt beatae in sequi.</p>  
     </div>
 
 </body>

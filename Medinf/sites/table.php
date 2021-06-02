@@ -24,7 +24,6 @@ include '../includes/autoloader.inc.php';
 <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container">
-                       
                            <form class="box" action="table.php" method="post">
                               <div class="field">
                               <h1 class="title has-text-black">Patientensuche</h1>
