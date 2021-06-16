@@ -21,17 +21,16 @@ include '../includes/autoloader.inc.php'
         if(password_verify($_POST['password'],$u["password"])){
             if($u["role"]=="arzt"){
                 $_SESSION["role"]="arzt";
-                header('Location: ../sites/table.php');  
-                
-
+                header('Location: ../sites/patients.php');  
             }
             if($u["role"]=="pflege"){
-                header('Location: ../sites/table.php');  
                 $_SESSION["role"]="pflege";
+                header('Location: ../sites/patients.php');  
+
             }
             if($u["role"]=="verwaltung"){
-                //header('Location: ../index.php');  
                 $_SESSION["role"]="verwaltung";
+                header('Location: ../sites/editpatient.php');  
             }
         }
         else{
