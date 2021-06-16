@@ -1,0 +1,45 @@
+html,body {
+    font-family: 'Questrial', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .hero.is-success {
+    background: #F2F6FA;
+  }
+  .hero .nav, .hero.is-success .nav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .box {
+    margin-top: 5rem;
+    border: 4px solid black; 
+    }
+       
+  input {
+    font-weight: 300;
+  }
+  p{
+    font-weight: 700;
+  }
+  .login-hr{
+    border-bottom: 1px solid black;
+  }
+
+  .has-text-red {
+    color: red;
+    font-weight: 400;
+    line-height: 1.25;
+  }
+  .dropdown.is-fullwidth {
+    display: flex;
+ }
+
+ .dropdown.is-fullwidth * {
+     width: 100%;
+  }
+
+  .content{
+    position: relative;
+    top: 100px;
+  }
+

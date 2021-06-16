@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart'], 'language': 'de'});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Datum', 'unterkühlt', 'fieber', 'Temperatur'],
+          ['1',35,39,36],
+          ['2',35,39,37],
+          ['3',35,39,38],
+          ['4',35,39,39],
+          ['5',35,39,40],
+          ['6',35,39,41],
+          ['7',35,39,38],
+          ['8',35,39,35],
+          ['9',35,39,34]
+        ]);
+
+        var options = {
+          title: 'Temperaturkurve',
+          curveType: 'function',
+          legend: { position: 'right' },
+          width: 1000,
+          height: 350
+
+
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart" style="height: 400px"></div>
+  </body>
+</html>
