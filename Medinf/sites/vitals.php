@@ -8,6 +8,19 @@ session_start();
 
 
 <head>
+<meta charset="utf-8">
+  <meta name="description" content="Basic dependency-free accordion menu">
+  <meta name="author" content="DevMarketer">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+  <link rel="stylesheet" href="../styles/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/theme.css">
+  
+
+  <link rel="stylesheet" href="../styles/accordion.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,43 +75,62 @@ session_start();
                                 </div>
                             </div>
                         </div>    
-                                        
-                        <div class="dropdown is-fullwidth">
-                            <div class="dropdown-trigger is-fullwidth">
-                                <button class="button is-large is-fullwidth" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                    <span>VITALWERT fucking hell geh doch fullwidh du wappler</span>
-                                    <span class="icon is-small">
-                                        <img src="../img/Down-Carrot-512.jpg">
-                                    </span>
-                                </button>
-                                </div>
-                                    <div class="dropdown-menu" id="dropdown-menu4" is-fullwidth role="menu">
-                                        <div class="dropdown-content is-fullwidth">
-                                            <div class="dropdown-item is-fullwidth"> 
-                                                    <table class="table is-fullwidth">
-                                                        <thead>
-                                                        <tr>
-                                                        <th>Wert</th>
-                                                        <th>Wochendurchschnitt</th>
-                                                        <th>was versteht der unter</th>
-                                                        <th>fucking fullwidth ned oida</th>
-                                                        <th></th>
-                                                        </tr>
-                                                    </thead>    
-                                                    </table>
-                                            </div>
-                                        </div> 
-                                    </div> 
-                                     
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                        var dropdown = document.querySelector('.dropdown');
-                        dropdown.addEventListener('click', function(event) {
-                            event.stopPropagation();
-                            dropdown.classList.toggle('is-active');
-                        });
-                        });        
-                    </script>      
-            </div>  
+
+                        
+            <div class="container has-text-centered">
+                <h3 class="title has-text-black">Vitalwerte</h3>
+                <hr class="login-hr">
+                <p class="subtitle has-text-black">Puls, Gewicht, Blutdruck</p>
+
+                <button class="accordion">Puls</button>
+                <div class="accordion-content">
+                  <div id="chart"></div>
+
+                  <div class="columns">
+                    <div class="column">
+                      <button class="button is-link is-fullwidth">Tabelle</button>
+                    </div>
+                  
+                    <div class="column">
+                      <button class="button is-link is-fullwidth">Graph</button>
+
+                    </div>
+                  </div>
+                  <br>
+                </div>
+                <button class="accordion">Gewicht</button>
+                <div class="accordion-content">
+                  <div id="chart"></div>
+
+                  <div class="columns">
+                    <div class="column">
+                      <button class="button is-link is-fullwidth">Tabelle</button>
+                    </div>
+                  
+                    <div class="column">
+                      <button class="button is-link is-fullwidth">Graph</button>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+                <button class="accordion">Blutdruck</button>
+                <div class="accordion-content">
+                  <div id="chart"></div>
+
+                  <div class="columns">
+                    <div class="column">
+                      <button class="button is-link is-fullwidth">Tabelle</button>
+                    </div>
+                  
+                    <div class="column">
+                      <button class="button is-link is-fullwidth">Graph</button>
+                      </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>                            
+                       
     </section>
-<body>                   
+    <script src="scripts.js"></script>
+<body>                 
