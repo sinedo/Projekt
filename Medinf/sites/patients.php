@@ -54,13 +54,13 @@
                 <td>'.$row["name"].'</td>
                 <td>'.$row["surname"].'</td>
                 <td> 
-                  <form action="../sites/docs.php" method="POST">
+                  <form action="../docs.php" method="POST">
                     <input type="text" class="is-hidden" name="id" value="'.$row["idPatients"].'">
                     <input class="button is-block is-info is-medium" name="docs" type="submit" value="Dokumentation" </td>
                   </form>
                 </td>
                 <td>
-                  <form action="../sites/vitals.php" method="POST">
+                  <form action="../vitals.php" method="POST">
                     <input type="text" class="is-hidden" name="id" value="'.$row["idPatients"].'">
                     <input class="button is-block is-info is-medium" name="vitals" type="submit" value="Vitalwerte" </td>
                   </form>
