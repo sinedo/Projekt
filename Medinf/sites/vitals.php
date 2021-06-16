@@ -44,7 +44,7 @@
           title: 'Temperaturkurve',
           curveType: 'function',
           legend: { position: 'right' },
-          height: 350
+          hAxis: {title: 'über den Datenpunkt hovern um das Datum zu sehen',  titleTextStyle: {color: '#333'}},
         };
 
         var chart_temperatur = new google.visualization.LineChart(document.getElementById('chart_temperatur'));
@@ -59,20 +59,19 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Aufenthaltstag', 'Gewicht'],
-          [ 1,      78.8],
-          [ 2,      79.5],
-          [ 3,     79.6],
-          [ 4,      80],
-          [ 5,      80.3],
-          [ 6,    80.9]
+          ['Datum', 'Gewicht'],
+        <?php
+          $vital = $v1->getVitals($_POST["id"]);
+          while ( $x = $vital->fetch()) {
+                    echo "['".$x['created_at']."', ".$x['weight']."],";
+                }
+        ?>
         ]);
 
         var options = {
-          title: 'Gewichtsänderung wärhrend des Aufenthalts im Krankenhaus',
-          hAxis: {title: 'Tag', minValue: 0, maxValue: 8},
-          vAxis: {title: 'Gewicht', minValue: 30, maxValue: 300},
-          legend: 'none'
+          title: 'Gewichtsänderung',
+          legend: 'none',
+          hAxis: {title: 'über den Datenpunkt hovern um das Datum zu sehen',  titleTextStyle: {color: '#333'}},
         };
 
         var chart_mass = new google.visualization.ScatterChart(document.getElementById('chart_mass'));
@@ -87,17 +86,19 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['day', 'Puls'],
-          ['19.03',  76],
-          ['20.03',  83],
-          ['21.03',  75],
-          ['22.03',  96]
+          ['Datum', 'Puls'],
+          <?php
+          $vital = $v1->getVitals($_POST["id"]);
+          while ( $x = $vital->fetch()) {
+                    echo "['".$x['created_at']."', ".$x['puls']."],";
+                }
+        ?>
         ]);
 
         var options = {
           title: 'Puls (Mittlerwert)',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
+          hAxis: {title: 'über den Datenpunkt hovern um das Datum zu sehen',  titleTextStyle: {color: '#333'}},
+
         };
 
         var chart_puls = new google.visualization.AreaChart(document.getElementById('chart_puls'));
@@ -141,9 +142,13 @@
                                         
                                 </div>  
                                 <div class="column">
-                                        <h1 class="title has-text-link-dark is-size-4 is-family-secondary">22 </h1>
-                                        <h1 class="title has-text-link-dark is-size-4 is-family-secondary"><?php echo $height; ?> </h1>
-                                        <h1 class="title has-text-link-dark is-size-4 is-family-secondary"><?php echo $weight.'kg';  ?> </h1>
+                                        <h1 class="title has-text-link-dark is-size-4 is-family-secondary"><?php 
+                                        $today = date("Y-m-d");
+                                        $diff = date_diff(date_create($patient["birthdate"]), date_create($today));
+                                        
+                                        echo $diff->format('%y')." Jahre"; ?> </h1>
+                                        <h1 class="title has-text-link-dark is-size-4 is-family-secondary"><?php echo $height.' cm'; ?> </h1>
+                                        <h1 class="title has-text-link-dark is-size-4 is-family-secondary"><?php echo $weight.' kg';  ?> </h1>
                                         </div>
                                     </div> 
                                 </div>
@@ -159,51 +164,44 @@
                 <button class="accordion">Temperatur</button>
                 <div class="accordion-content">
                   <div id="chart_temperatur"></div>
-
-                  <div class="columns">
-                    <div class="column">
-                      <button class="button is-link is-fullwidth">Tabelle</button>
-                    </div>
-                  
-                    <div class="column">
-                      <button class="button is-link is-fullwidth">Graph</button>
-
-                    </div>
-                  </div>
                   <br>
+                  <form action="vitaltable.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="<?php echo $_SESSION["id"];?>">
+                    <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Tabelle">
+                  </form>
+                  <br>
+                </div>
+                <br>
+                <br>
                 </div>
                 <button class="accordion">Gewicht</button>
                 <div class="accordion-content">
                   <div id="chart_mass"></div>
-
-                  <div class="columns">
-                    <div class="column">
-                      <button class="button is-link is-fullwidth">Tabelle</button>
-                    </div>
-                  
-                    <div class="column">
-                      <button class="button is-link is-fullwidth">Graph</button>
-                      </div>
-                      </div>
-                    </div>
+                  <br>
+                  <form action="vitaltable.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="<?php echo $_SESSION["id"];?>">
+                    <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Tabelle">
+                  </form>
+                  <br>
                 </div>
+                <br>
+                <br>
+
                 <button class="accordion">Puls</button>
                 <div class="accordion-content">
                   <div id="chart_puls"></div>
-
-                  <div class="columns">
-                    <div class="column">
-                      <button class="button is-link is-fullwidth">Tabelle</button>
-                    </div>
-                  
-                    <div class="column">
-                      <button class="button is-link is-fullwidth">Graph</button>
-                      </div>
-                      </div>
+                  <br>
+                  <form action="vitaltable.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="<?php echo $_SESSION["id"];?>">
+                    <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Tabelle">
+                  </form>
+                  <br>
                     </div>
                 </div>
             </div>
-        </div>                            
+        </div>      
+        <section class="hero is-success is-fullheight">
+        </section>                      
                        
     </section>
     <script src="scripts.js"></script>
