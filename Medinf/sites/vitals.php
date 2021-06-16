@@ -82,7 +82,7 @@ session_start();
                 <hr class="login-hr">
                 <p class="subtitle has-text-black">Puls, Gewicht, Blutdruck</p>
 
-                <button class="accordion">Puls</button>
+                <button class="accordion">Temperatur</button>
                 <div class="accordion-content">
                   <div id="chart"></div>
 
@@ -113,7 +113,7 @@ session_start();
                       </div>
                     </div>
                 </div>
-                <button class="accordion">Blutdruck</button>
+                <button class="accordion">Puls</button>
                 <div class="accordion-content">
                   <div id="chart"></div>
 
