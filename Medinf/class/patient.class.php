@@ -40,6 +40,15 @@ class Patient extends Database {
         $this->close($pdo);
         $result->fetch();
     }
+    public function getpatientwithid ($id) {
+        $pdo = $this->connect();
+        $sql = "SELECT * FROM patients WHERE idPatients LIKE $id";
+        $result = $pdo->prepare($sql);
+        $result->execute();
+        $this->close($pdo);
+        return $result->fetch();
+
+    }
 }
 
 ?>
