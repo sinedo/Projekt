@@ -23,9 +23,7 @@ session_start();
 <body>
     <section class="hero is-success is-fullheight">
         <div class="hero-head">
-            <div class="container">     
-
-                    
+            <div class="container">                  
                         <div class="columns">
                             <div class="column is-half  ">
                             <div class="box">
