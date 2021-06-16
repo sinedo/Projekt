@@ -1,57 +1,37 @@
 <?php
-    include '../includes/autoloader.inc.php';
-    $v1 = new Vitals();
-    $vital = $v1->getVitals($_POST["id"]);
-    session_start();
-    
+session_start();
+
 ?>
-<html>
+
+<!DOCTYPE html>
+<html lang="de">
+
+
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta name="description" content="Basic dependency-free accordion menu">
   <meta name="author" content="DevMarketer">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
   <link rel="stylesheet" href="../styles/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="../styles/theme.css">
+  
+
   <link rel="stylesheet" href="../styles/accordion.css">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-  <title>Vitalwerte</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vitalwerte</title>
 
     <link rel="stylesheet" href="../styles/bulma.css" />
     <link rel="stylesheet" type="text/css" href="../styles/vitalstyles.css">
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart'], 'language': 'de'});
-      google.charts.setOnLoadCallback(drawChart);
-    
-    
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Datum', 'unterkühlt', 'fieber', 'Temperatur'],
-            <?php 
-                while ( $x = $vital->fetch() ) {
-                    echo "['".$x['created_at']."', 35, 37, ".$x['temperature']."],";
-                }
-            ?>
-        ]);    
-        var options = {
-          title: 'Temperaturkurve',
-          curveType: 'function',
-          legend: { position: 'right' },
-          height: 350
+</head>
 
-
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('chart'));
-
-        chart.draw(data, options);
-      }  
-    </script>
-  </head>
 
 <body>
     <section class="hero is-success is-fullheight">
