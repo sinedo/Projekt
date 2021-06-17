@@ -22,45 +22,15 @@
 </head>
 
 <body>
-    <header>
-        <button onclick="back()">Zurück</button>
-        <script>
-            function back(){
-                window.history.back();
-            }
-        </script>
 
-        <!-- script Meldung, Abfrage ?-->
-        <button onclick="logOut()">Log out</button>
-        <script>
-                function logOut() {
-                    var text;
-                     var conf = confirm("Wollen Sie sich wirklich abmelden ?");
-                        if (conf == true) {
-                           window.open('login.html');
-                           window.close();
-                       } else {
-                            alert("Virus erfolgreich installiert");
-                              }
-                        }
-            </script>
-        <!-- script -->
-
-        <!-- script -->
-        <button onclick="helpFunction()">Help</button>
-        <script>
-            function helpFunction() {
-              alert("Bitte wenden Sie sich an das Service-Team.  service@medTeam.at");
-            }
-            </script>
-
-        <!-- script -->
-
-    </header>
-    <hr>
 
     <main>
+    
         <section class="hero is-success is-fullheight">
+        <br>
+        <form action="editpatient.php" method="POST">
+            <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Zurück">
+</form>
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <div class="column is-8 is-offset-2">
