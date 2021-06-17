@@ -1,0 +1,41 @@
+<html>
+  <head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsverlauf</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['day', 'Puls'],
+          ['19.03',  76],
+          ['20.03',  83],
+          ['21.03',  75],
+          ['22.03',  96]
+        ]);
+
+        var options = {
+          title: 'Puls (Mittlerwert)',
+          hAxis: {title: 'Tage',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+  </head>
+  <body>
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+
+  </body>
+</html>

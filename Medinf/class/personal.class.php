@@ -15,7 +15,7 @@ class Personal extends Database{
     public function getPasswordByUsername($username){
 
         $pdo=$this->connect();
-        $sql = "SELECT password FROM personal 
+        $sql = "SELECT password,role FROM personal 
         WHERE username = :uname";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':uname', $username, PDO::PARAM_STR);
@@ -24,5 +24,4 @@ class Personal extends Database{
         $this->close($pdo);
         return $stmt->fetch();
     }
-
 }
