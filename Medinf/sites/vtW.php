@@ -1,23 +1,14 @@
 <?php
-include '../includes/autoloader.inc.php';
-session_start();
-if (isset($_POST["id"])) {
-    $_SESSION["id"] = $_POST["id"];
-}
-$v1 = new Vitals();
-$vital = $v1->getVitals($_SESSION["id"]);
-$p1 = new Patient();
-$patient = $p1->getpatientwithid($_SESSION["id"]);
-while ( $x = $vital->fetch()) {
-    $height=$x['height'];
-    $weight=$x['weight'];
-}    
-$d1 = new Docs();
-$doc = $d1->getDocs($_SESSION["id"]);
-if (isset($_POST["doc"])) {
-    $d = date('Y-m-d H:i:s');
-    $d1->addDocs($_POST["doc"],$d, $_SESSION["id"]);
-}
+    include '../includes/autoloader.inc.php';
+    $v1 = new Vitals();
+    $vital = $v1->getVitals($_POST["id"]);
+    $p1 = new Patient();
+    $patient = $p1->getpatientwithid($_POST["id"]);
+    while( $row = $vital->fetch()){
+        $height=$row['height'];
+        $weight=$row['weight'];
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,10 +27,10 @@ if (isset($_POST["doc"])) {
 </head>
 <body>
     <section class="hero is-success is-fullheight">
-    <form action="patients.php" method="POST">
-                    <input type="text" class="is-hidden" name="id">
-                    <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Patientensuche">
-                  </form> 
+    <form action="vitals.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="<?php echo $_POST["id"];?>">
+                    <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Zurück">
+                  </form>
         <div class="hero-head">
             <div class="container">                  
                         <div class="columns">
@@ -80,49 +71,55 @@ if (isset($_POST["doc"])) {
                                     </div> 
                                 </div>
                             </div>
-                        </div>
-                        <form action="docs.php" method="POST">
-                        <textarea class="textarea" placeholder="10 lines of textarea" rows="10" name = "doc"></textarea>
-                            <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Einfügen">
-                        </form>
-                            <div class="hero-body">
-                              <div class="container">             
-                                <form class="box" action="patients.php" method="post">
-                                  <div class="field">
-                                    <h1 class="title has-text-black">Frühere Dokumentationen</h1>
-                                    <div class="columns">
-                                      <div class="column is-11">
-                                      </div>
-                                      <div class="column">
-                                      </div>
-                                </form>
-                              </div>  
-                              <table class="table is-fullwidth">
-                                <thead>
-                                  <tr>
-                                    <th> Datum </th>
-                                    <th>Dokumentation</th>
-                                    <th></th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <?php
-                                      $output = $d1->getDocs($_SESSION["id"]);
-                                      while( $row = $output->fetch()){
-                                        echo 
-                                        '<tr>
-                                          <td>'.$row["created_at"]. '</td>
-                                          <td>'.$row["documentaion"].'</td>';
-                                      }
-                                    
-                                  ?>                                           
-                                </tbody>
-                              </table>
-                            </div>
-                            </div>
-                            </div>
-                          </section>
-                        
-                    </section>                     
-</body>
+                        </div>  
+
+<div class="hero is-success is-fullheight">
+
+    <div class="container">             
+      <form class="box">
+        <div class="field">
+          <h1 class="title has-text-black">Gewichtstabelle</h1>
+          <div class="columns">
+            <div class="column is-11">
+            </div>
+            <div class="column">
+            </div>
+      </form>
+    </div>  
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th> Datum </th>
+          <th>Gewicht</th>
+
+          <th></th>
+        </tr>
+      </thead>
+        <?php
+         
+            $vital = $v1->getVitalsDESC($_POST["id"]);
+            while( $row = $vital->fetch()){
+
+                echo 
+                    '<tr>
+                    <td>'.$row["created_at"]. '</td>
+                    <td>'.$row["weight"].'</td>
+                    <td> 
+        
+                    </td>
+                    <td>
+                  
+                    </td> 
+                    </tr>';
+            }
+        ?>                                           
+
+    </table>
+  </div>
+
+  </div>
+
+</div>
+</div>
 </html>
+</body>

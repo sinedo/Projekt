@@ -5,7 +5,10 @@
     session_start();
     $p1 = new Patient();
     $patient = $p1->getpatientwithid($_POST["id"]);
-    
+    while( $row = $vital->fetch()){
+      $height=$row['height'];
+      $weight=$row['weight'];
+  }
 ?>
 <html>
 <head>
@@ -33,6 +36,7 @@
         var data = google.visualization.arrayToDataTable([
             ['Datum', 'unterkühlt', 'fieber', 'Temperatur'],
             <?php 
+                $vital = $v1->getVitals($_POST["id"]);
                 while ( $x = $vital->fetch()) {
                     echo "['".$x['created_at']."', 35, 37, ".$x['temperature']."],";
                     $height=$x['height'];
@@ -111,8 +115,14 @@
 
     
   </head>
+
 <body>
+
     <section class="hero is-success is-fullheight">
+    <form action="patients.php" method="POST">
+                    <input type="text" class="is-hidden" name="id">
+                    <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Patientensuche">
+                  </form> 
         <div class="hero-head">
             <div class="container">                  
                         <div class="columns">
@@ -165,8 +175,8 @@
                 <div class="accordion-content">
                   <div id="chart_temperatur"></div>
                   <br>
-                  <form action="vitaltable.php" method="POST">
-                    <input type="text" class="is-hidden" name="id" value="<?php echo $_SESSION["id"];?>">
+                  <form action="vtT.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="<?php echo $_POST["id"];?>">
                     <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Tabelle">
                   </form>
                   <br>
@@ -178,8 +188,8 @@
                 <div class="accordion-content">
                   <div id="chart_mass"></div>
                   <br>
-                  <form action="vitaltable.php" method="POST">
-                    <input type="text" class="is-hidden" name="id" value="<?php echo $_SESSION["id"];?>">
+                  <form action="vtW.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="<?php echo $_POST["id"];?>">
                     <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Tabelle">
                   </form>
                   <br>
@@ -191,18 +201,22 @@
                 <div class="accordion-content">
                   <div id="chart_puls"></div>
                   <br>
-                  <form action="vitaltable.php" method="POST">
-                    <input type="text" class="is-hidden" name="id" value="<?php echo $_SESSION["id"];?>">
+                  <form action="vtP.php" method="POST">
+                    <input type="text" class="is-hidden" name="id" value="<?php echo $_POST["id"];?>">
                     <input class="button is-block is-info is-large fullwidth" name="docs" type="submit" value="Tabelle">
                   </form>
                   <br>
+                  
                     </div>
+                    
                 </div>
+                
             </div>
+          
         </div>      
         <section class="hero is-success is-fullheight">
         </section>                      
-                       
+      
     </section>
     <script src="scripts.js"></script>
-<body>                 
+</body>                 
